@@ -3,6 +3,12 @@
 <p><%= @post.body %></p>
 
 <h3>Comments</h3>
-<% @post.comments.each do |c| %>
+<% @comments.each do |c| %>
 <p><%= c.body %></p>
+<% end %>
+
+<strong>Add new comment below ..</strong>
+<%= form_for [@post, @comment] do |f| %>
+  <p><%= f.text_area :body %></p>
+  <%= f.submit %>
 <% end %>

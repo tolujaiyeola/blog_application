@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   # delete "/posts/:id" => "posts#destroy"
 
   # get "/posts/edit/:id" => "posts#edit", as: :edit_posts
-
+  # resources :posts, only: [:show] do
+  #   resources :comments, only: [:create]
+  # end
   resources :posts do
   resources :comments
 end
