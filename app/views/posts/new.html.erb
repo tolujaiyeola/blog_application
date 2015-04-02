@@ -1,0 +1,24 @@
+<h1>New Blog post entry</h1>
+
+
+<% if @post.errors.any? %>
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @post, :html => {:class => "form-horizontal center"} do |f| %>
+<div class="col-md-8">
+  Title:*<br>
+  <%= f.text_field :title %><br>
+</div>
+<div class="col-md-8">
+  Body:*<br>
+  <%= f.text_area :body %><br>
+</div>
+<div class="col-md-8">
+  <%= f.submit %>
+</div>
+<% end %>
