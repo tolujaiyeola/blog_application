@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get "/home" => "home#index", as: :home
   get "/about" => "about#index", as: :about
 
-  resources :posts
+  # resources :posts
   # get "/posts" => "posts#index"
   # post "/posts/new" => "posts#create", as: :post
 
