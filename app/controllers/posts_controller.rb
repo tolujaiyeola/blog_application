@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authenticate_user!
+
   def index
     @posts = Post.all
   end
@@ -9,6 +12,10 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params.require(:post).permit(:title, :body))
+
+    # using current_user.posts.new instead of Post.new
+    # makes the instantiated post associated with the current_user
+    @post= current_user.posts.new(params.require(:post).permit(:title, :body))
     if @post.save
       redirect_to root_path
     else
