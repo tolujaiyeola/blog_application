@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root "home#index"
   get "/home" => "home#index", as: :home
@@ -21,5 +21,9 @@ Rails.application.routes.draw do
   # end
   resources :posts do
   resources :comments
+  resources :favourites, only: [:create, :destroy]
+
 end
+
+resources :favourites, only: [:index]
 end
