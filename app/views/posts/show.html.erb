@@ -1,10 +1,16 @@
 <h1><%= @post.title %></h1>
 
+<% if @post.user.present? %>
+  <p>Created By: <%= @post.user.name_display %><p>
+<% end %>
+
 <p><%= @post.body %></p>
+<p>Tag : <%= @category.title %></p>
 
 <p>Favourited: <%= @post.favourites.count %> times</p>
-<% if @favorite %>
-<%= link_to fa_icon("star 3x"), post_favourite_path(@post, @favourite), method: :delete %>
+<%#<%= debug @favourite %>
+<% if @favourite %>
+  <%= link_to fa_icon("star 3x"), post_favourite_path(@post, @favourite), method: :delete %>
 <% else %>
   <%= link_to fa_icon("star-o 3x"), post_favourites_path(@post), method: :post %>
 <% end %>

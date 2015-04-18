@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     if @comment.update(params.require(:comment).permit(:body))
       redirect_to post_path(@post)
     else
-      render :edit
+      render "post/show"
     end
 
   end
