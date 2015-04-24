@@ -1,0 +1,6 @@
+<%= simple_form_for @answer, defaults: { input_html: { class: 'form-horizontial' } } do |f| %>
+  <%= f.input :body, input_html: { class: 'special' } %>
+  <%= f.input :password, input_html: { maxlength: 20 } %>
+  <%= f.input :remember_me, input_html: { value: '1' } %>
+  <%= f.button :submit %>
+<% end %>

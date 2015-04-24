@@ -3,9 +3,9 @@
 <ul>
   <% @posts.each do |post| %>
     <li>
-      <%= post.title %> 
-      <%= link_to "show", post %> 
-      <%= link_to "edit", edit_post_path(post) %> 
+      <%= post.title %>
+      <%= link_to "show", post %>
+      <%= link_to "edit", edit_post_path(post) %>
       <%= link_to "delete", post, method: :delete, data: {confirm: "Delete post?"} %>
     </li>
   <% end %>
